@@ -16,6 +16,7 @@
 - Added ThriftSerializer, to easily de/serialize and object to bytes using the Thrift binary protocol.
 - Added ThriftMemoryTransport, a simple in-memory transport.
 - Renamed HttpThriftTransport to ThriftHttpTransport for consistency.</PackageReleaseNotes>
+    <AssemblyName>Syncromatics.ThriftSharp</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
