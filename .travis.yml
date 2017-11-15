@@ -1,0 +1,18 @@
+language: csharp
+
+os: linux # Ubuntu 14.04
+dist: trusty
+sudo: required
+dotnet: 2.0.0
+
+services:
+  - docker
+
+script:
+  - dotnet restore
+  - dotnet build src/
+  - dotnet test test/
+  - "if [[ $TRAVIS_PULL_REQUEST == 'false' && $TRAVIS_TAG ]]; then
+  dotnet pack src/ --configuration Release /p:Version=$TRAVIS_TAG;
+  nuget push src/bin/Release/*.nupkg -ApiKey $API_KEY;
+  fi"
